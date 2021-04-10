@@ -33,7 +33,12 @@ public class Main extends PApplet {
 		controlador.moverFiguras();
 	}
 	public void mousePressed() {
-		controlador.detenerFigura();
+		
+		if (mouseButton==LEFT) {
+			controlador.detenerFigura();
+		}else if (mouseButton==RIGHT) {
+			controlador.crearFigura();
+		}
 	}
 
 }

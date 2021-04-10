@@ -29,17 +29,20 @@ public abstract class Figura {
 	public abstract void pintarFigura();
 
 	public void moverFigura() {
-		if (movimiento == 0) {
-			if (posY <= 0 || posY >= 500) {
-				dir = dir * -1;
-			}
-			posY += vel * dir;
+		if (mover) {
 
-		} else if (movimiento == 1) {
-			if (posX <= 0 || posX >= 500) {
-				dir = dir * -1;
+			if (movimiento == 0) {
+				if (posY <= 0 || posY >= 500) {
+					dir = dir * -1;
+				}
+				posY += vel * dir;
+
+			} else if (movimiento == 1) {
+				if (posX <= 0 || posX >= 500) {
+					dir = dir * -1;
+				}
+				posX += vel * dir;
 			}
-			posX += vel * dir;
 		}
 
 	}
@@ -122,6 +125,22 @@ public abstract class Figura {
 
 	public void setApp(PApplet app) {
 		this.app = app;
+	}
+
+	public int getMovimiento() {
+		return movimiento;
+	}
+
+	public void setMovimiento(int movimiento) {
+		this.movimiento = movimiento;
+	}
+
+	public boolean isMover() {
+		return mover;
+	}
+
+	public void setMover(boolean mover) {
+		this.mover = mover;
 	}
 
 }

@@ -13,10 +13,11 @@ public class Cuadrado extends Figura {
 	@Override
 	public void pintarFigura() {
 		getApp().fill(getR(), getG(), getB());
+		getApp().rectMode(PApplet.CENTER);
 		getApp().rect(getPosX(), getPosY(), getTam(), getTam());
 		getApp().fill(0);
 		getApp().textAlign(PApplet.CENTER);
-		getApp().text(getValor(), getPosX()+getTam()/2, getPosY()+getTam()/2);
+		getApp().text(getValor(), getPosX(), getPosY());
 
 	}
 
