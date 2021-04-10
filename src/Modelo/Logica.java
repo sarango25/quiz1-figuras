@@ -74,10 +74,45 @@ public class Logica {
 	}
 
 	public void choque() {
+		boolean removed = false;
+		for (int i = 0; i < figuras.size() && removed == false; i++) {
 
+			for (int j = 0; j < figuras.size() && removed == false; j++) {
+				if (!(figuras.get(i) instanceof Triangulo)&& !(figuras.get(j) instanceof Triangulo)) {
+					if (i != j) {
+						if (PApplet.dist(figuras.get(i).getPosX(), figuras.get(i).getPosY(), figuras.get(j).getPosX(),
+								figuras.get(j).getPosY()) <= figuras.get(i).getTam() / 2
+										+ figuras.get(j).getTam() / 2) {
+							generarTriangulo(figuras.get(i).getPosX(), figuras.get(i).getPosY(),
+									figuras.get(i).getValor() + figuras.get(j).getValor());
+							figuras.remove(j);
+							figuras.remove(i);
+
+							removed = true;
+
+						}
+					}
+
+				}
+
+			}
+		}
 	}
 
-	public void generarTriangulo() {
+	public void generarTriangulo(int posX, int posY, int valor) {
+
+		int r = (int) app.random(0, 255);
+		int g = (int) app.random(0, 255);
+		int b = (int) app.random(0, 255);
+		int vel = (int) app.random(1, 3);
+		int movimiento = (int) app.random(0, 2);
+		int tam = (int) app.random(10, 100);
+		int dir = (int) app.random(0, 2);
+		if (dir == 0) {
+			dir = -1;
+		}
+		Triangulo t = new Triangulo(posX, posY, tam, dir, valor, dir, g, b, vel, true, movimiento, app);
+		figuras.add(t);
 
 	}
 

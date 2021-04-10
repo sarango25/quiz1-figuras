@@ -30,4 +30,9 @@ public class Controlador {
 		logica.crearFigura();
 	}
 
+	public void choque() {
+		logica.choque();
+		
+	}
+
 }

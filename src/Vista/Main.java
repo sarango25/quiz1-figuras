@@ -21,7 +21,7 @@ public class Main extends PApplet {
 
 	public void setup() {
 		infoFiguras = loadStrings("Data/atributos.txt");
-		System.out.println(infoFiguras[0]);
+		//System.out.println(infoFiguras[0]);
 		controlador = new Controlador(infoFiguras,this);
 		
 		
@@ -31,6 +31,7 @@ public class Main extends PApplet {
 		background(255);
 		controlador.pintarFiguras();
 		controlador.moverFiguras();
+		controlador.choque();
 	}
 	public void mousePressed() {
 		
